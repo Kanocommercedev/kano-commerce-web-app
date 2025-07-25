@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - WCAG AA compliant contrast ratios */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Kano State Green as Primary - Accessible contrast */
+    --primary: 142 70% 22%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 142 70% 18%;
+
+    /* Gold as Secondary - Improved contrast */
+    --secondary: 45 95% 42%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-hover: 45 95% 38%;
+
+    --muted: 142 10% 96%;
+    --muted-foreground: 215.4 16.3% 35%;
+
+    --accent: 142 20% 94%;
+    --accent-foreground: 222.2 84% 4.9%;
+
+    /* Status colors - Accessible */
+    --destructive: 0 84.2% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 22%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 95% 42%;
+    --warning-foreground: 0 0% 0%;
+    --info: 213 94% 40%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 82%;
+    --input: 214.3 31.8% 85%;
+    --ring: 142 70% 22%;
+
+    /* Government Design System - Accessible colors with enhanced red */
+    --government-green: 142 70% 22%;
+    --government-gold: 45 95% 42%;
+    --government-red: 0 75% 45%;
+    --government-green-light: 142 45% 96%;
+    --government-green-dark: 142 70% 16%;
+    --government-gold-light: 45 80% 96%;
+    --government-gold-dark: 45 95% 32%;
+    --government-red-light: 0 65% 96%;
+    --government-red-dark: 0 85% 35%;
+    --government-red-accent: 355 85% 50%;
+    --government-red-vibrant: 0 90% 55%;
+    
+    /* Enhanced Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--government-green)), hsl(var(--government-green-dark)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--government-green)) 0%, hsl(var(--government-green-dark)) 50%, hsl(var(--government-green)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--government-green-light) / 0.3));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--government-gold)), hsl(45 100% 45%));
+    --gradient-shimmer: linear-gradient(90deg, transparent, hsl(var(--government-gold) / 0.3), transparent);
+    --gradient-professional: linear-gradient(135deg, hsl(var(--government-green)) 0%, hsl(var(--government-green-dark)) 35%, hsl(142 85% 15%) 100%);
+
+    /* Enhanced Shadows */
+    --shadow-government: 0 8px 30px -8px hsl(var(--government-green) / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(var(--government-green) / 0.08);
+    --shadow-hero: 0 25px 50px -12px hsl(var(--government-green) / 0.25);
+    --shadow-floating: 0 15px 35px -10px hsl(var(--government-green) / 0.2);
+    --shadow-glow: 0 0 30px hsl(var(--government-gold) / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Professional scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--government-green-light));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--government-green));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--government-green-dark));
+  }
+}
+
+@layer components {
+  /* Professional link animations */
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-government-green after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  /* Hover scale animation */
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  /* Professional button hover effects */
+  .btn-professional {
+    @apply transition-all duration-300 transform hover:shadow-lg active:scale-95;
+  }
+
+  /* Staggered animation delays */
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Professional gradient overlays */
+  .gradient-overlay {
+    background: linear-gradient(135deg, hsl(var(--government-green) / 0.9), hsl(var(--government-green-dark) / 0.8));
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Professional shadow variants */
+  .shadow-professional {
+    box-shadow: 0 4px 20px -4px hsl(var(--government-green) / 0.15);
+  }
+
+  .shadow-professional-lg {
+    box-shadow: 0 15px 50px -10px hsl(var(--government-green) / 0.25);
+  }
+
+  /* Enhanced Animation Classes */
+  .animate-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  /* Modern Card Hover Effects */
+  .card-hover-lift {
+    @apply transition-all duration-500 hover:shadow-floating hover:-translate-y-2;
+  }
+
+  .card-premium {
+    background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--government-green-light) / 0.2));
+    border: 1px solid hsl(var(--government-green) / 0.1);
+  }
+
+  /* Professional Text Gradients */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--government-gold)), hsl(45 100% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, hsl(var(--government-green)), hsl(var(--government-green-dark)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
